@@ -14,8 +14,34 @@ class Order
 		int how_many_rounds_did_this_order_go_through_AKA_order_wait_time;	
 		int how_many_prices;
 		double order_total_price;
-		int order_round;
-	
+};
+
+class Backlog
+{
+	public:
+		
+		int amount_of_unfulfilled_orders_currently_remaining;
+		int the_IDs_of_the_unfulfilled_orders_currently_remaining[10];//make into vector
+};
+
+class Extra_Credit
+{
+	int the_total_number_of_rounds;
+ 	/*and*/int the_total_number_of_orders;
+ 	double the_total_revenue_from_all_the_rounds;
+	double the_average_revenue_per_round;
+	double the_average_revenue_per_order;
+	int the_number_of_prix_fixe_orders_processed;
+	int the_number_of_menu_items_orders_processed;
+	int the_average_number_of_incoming_orders_per_round;
+	int the_average_number_of_prix_fixe_orders_processed_per_round;
+	int the_average_number_of_menu_tems_orders_processed_per_round;
+	int the_average_number_of_outgoing_orders_per_round;
+	int the_order_ids_as_they_were_fulfilled_chronologically_throught_the_simulation;
+	int the_number_of_orders_that_took_longer_than_2_rounds_to_fulfill;
+	/*and*/int the_order_ids_that_took_longer_than_2_rounds_to_fulfill;
+	int the_number_of_orders_that_remained_unfulfilled_at_the_end_of_all_the_rounds;
+	/*and*/int the_order_ids_that_remained_unfulfilled_at_the_end_of_all_the_rounds;
 };
 
 class Round
@@ -30,7 +56,7 @@ class Round
 			
 		Order order;
 		vector<Order> orders;
-		
+		vector<Extra_Credit> extra_credit;
 		
 		//vector<double> order_dist;
 		
@@ -73,8 +99,6 @@ class Kitchen_Simulator
 		double price_helper(int x , int y , int z , vector<Round> vector_of_rounds);
 		void fix_copy();
 		void outgoing_orders(int incoming, int outgoing, int round_ID, int this_index );
-		bool first_round;
-		vector<Order> outorders;
 		
 	private:
 		
